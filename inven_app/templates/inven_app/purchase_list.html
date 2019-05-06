@@ -1,0 +1,35 @@
+{% extends 'inven_app/base.html' %}
+<div class="main-content">
+
+{% block content %}
+	<h2> Purchase Requests Overview</h2>
+	<p>Keep track of Purchases bought & delivered throughout the library system.</p>
+
+<div class="all">
+      <table class="allpurchases table table-hover">{% block table-title %}<h3>All Purchases</h3>{% endblock %}
+        <tr>
+          <th>Requester</th>
+          <th>Request ID</th>
+          <th>Product Description</th>
+          <th>Status</th>
+          <th>Purchase Date</th>
+          <th>Last Updated</th>
+     </tr>
+
+      {% for item in listitems %}
+      <tr>
+          <td>{{item.requester}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.order_status}}</td>
+          <td>{{item.request_date}}</td>
+          <td>{{item.date_updated}}</td>
+       </tr>
+      {% endfor %}
+  </table>
+
+
+
+    </div>
+</div>
+{% endblock %}
